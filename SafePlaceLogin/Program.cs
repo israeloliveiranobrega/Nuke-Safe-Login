@@ -31,3 +31,17 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+//services.AddMediatR(cfg =>
+//{
+//    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
+//    cfg.AddOpenBehavior(typeof(ValidUserBehavior<,>));
+//    cfg.AddOpenBehavior(typeof(SendEmailBehavior<,>));
+//    cfg.AddOpenBehavior(typeof(LogBehavior<,>));//ordem de adiçãoo implica na ordem de execução deles
+//});
+
+//var command = new CreateUserCommand
+//{
+//    Name = Console.ReadLine() ?? string.Empty
+//};

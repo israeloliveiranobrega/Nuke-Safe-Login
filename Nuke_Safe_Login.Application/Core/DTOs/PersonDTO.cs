@@ -1,10 +1,10 @@
-﻿using Nuke_Safe_Login.Domain.DTO.Request.Value_Objects.Base;
+﻿using Nuke_Safe_Login.Application.Core.AccessControl.DTOs.Base;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace Nuke_Safe_Login.Domain.DTO.Request.Value_Objects;
+namespace Nuke_Safe_Login.Application.Core.AccessControl.DTOs;
 public record PersonDTO
 {
     public NameDTO LegalName { get; set; }

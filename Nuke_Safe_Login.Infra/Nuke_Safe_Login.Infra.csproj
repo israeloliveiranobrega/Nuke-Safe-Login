@@ -7,9 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Register\Handlers\" />
-    <Folder Include="Register\Behaviors\" />
-    <Folder Include="Register\Helpers\" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nuke_Safe_Login.Domain\Nuke_Safe_Login.Domain.csproj" />
   </ItemGroup>
 
 </Project>

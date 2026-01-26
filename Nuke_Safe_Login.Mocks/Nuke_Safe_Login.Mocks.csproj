@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Nuke_Safe_Login.Domain\Nuke_Safe_Login.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services Mock\Validations Mock\" />
+  </ItemGroup>
+
 </Project>

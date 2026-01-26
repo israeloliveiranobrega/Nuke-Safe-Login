@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nuke_Safe_Login.Domain.DTO.Request.Value_Objects.Base;
+namespace Nuke_Safe_Login.Application.Core.AccessControl.DTOs.Base;
 public record AdressDTO
 {
     public string PostalCode { get; set; }
