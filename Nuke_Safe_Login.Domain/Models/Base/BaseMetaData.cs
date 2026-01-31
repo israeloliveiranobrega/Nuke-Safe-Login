@@ -1,8 +1,8 @@
 ﻿namespace Nuke_Safe_Login.Domain.Models.Base;
 
-public class BaseMetaData
+public record BaseMetaData
 {
-    public Guid Id { get; set; } = Guid.CreateVersion7();
+    public Guid Id { get; set; }
 
     public Guid CreatedBy { get; set; }
     public DateTime CreateDate { get; set; }

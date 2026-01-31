@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using Nuke_Safe_Login.Domain.Helpers.Extension;
+using Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +34,18 @@ app.MapControllers();
 
 app.Run();
 
+CPF teste = new CPF("12345678909");
+
+var egf = (CPF)"12312312312";
+
+"53y1325y135y".ToCpf();
+
+var egfs = (string)teste;
+
+if (teste != "53grwedfs")
+{
+
+}
 
 //services.AddMediatR(cfg =>
 //{

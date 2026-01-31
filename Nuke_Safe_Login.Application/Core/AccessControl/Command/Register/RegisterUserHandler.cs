@@ -13,5 +13,5 @@ public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, Register
         var newUser = request;
 
         throw new NotImplementedException();
-    }
+    } 
 }

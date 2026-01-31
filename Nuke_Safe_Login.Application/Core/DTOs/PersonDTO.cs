@@ -7,8 +7,7 @@ using System.Text;
 namespace Nuke_Safe_Login.Application.Core.AccessControl.DTOs;
 public record PersonDTO
 {
-    public NameDTO LegalName { get; set; }
-    public NameDTO PreferredName { get; set; }
+    public NameDTO Name { get; set; }
     public DateOnly BirthDate { get; set; } 
     public string Cpf { get; set; }
     public string Rg { get; set; }

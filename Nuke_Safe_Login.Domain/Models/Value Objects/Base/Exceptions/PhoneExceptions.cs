@@ -1,0 +1,24 @@
+﻿using Nuke_Safe_Login.Models.Base.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base.Exceptions
+{
+    public class InvalidPhoneCountryCodeFormatExceptions : DomainException
+    {
+        public InvalidPhoneCountryCodeFormatExceptions() : base ("O DDD deve conter apenas numeros.") { }
+    }
+    public class InvalidPhoneCountryCodeLengthExceptions : DomainException
+    {
+        public InvalidPhoneCountryCodeLengthExceptions() : base("O DDD deve conter 2 digitos.") { }
+    }
+    public class InvalidPhoneNumberLengthExceptions : DomainException
+    {
+        public InvalidPhoneNumberLengthExceptions() : base("O numero deve conter 9 digitos.") { }
+    }
+    public class InvalidPhoneNumberFormatExceptions : DomainException
+    {
+        public InvalidPhoneNumberFormatExceptions() : base("O numero deve conter apenas numeros.") { }
+    }
+}

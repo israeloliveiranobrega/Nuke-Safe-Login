@@ -1,0 +1,27 @@
+﻿using System.Text.RegularExpressions;
+
+namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
+public readonly struct Password
+{
+    public string Hash { get; init; }
+
+    public Password(string password)
+    {
+        ValidPassword(password);
+
+        Hash = BCrypt.Net.BCrypt.HashPassword(password);
+    }
+
+    public bool Validate(string password)
+    {
+        return BCrypt.Net.BCrypt.Verify(password, Hash);
+    }
+
+    private void ValidPassword(string password)
+    {
+        string regexPattern = @"^(?=.*[A-Z])(?=.*\d).{16,}$";
+
+        if (!Regex.IsMatch(password, regexPattern))
+            throw new ArgumentException("A senha não atende os requesitos.");
+    }
+}

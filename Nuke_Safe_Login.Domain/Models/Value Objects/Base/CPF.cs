@@ -2,23 +2,24 @@
 using System.Text.RegularExpressions;
 
 namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
-
-public record CPF
+public readonly struct CPF
 {
-    private string Number { get; set; }
-    private string Validators { get; set; }
+    public ulong Numbers { get; init; }
+    public ulong Validators { get; init; }  
+
+    public ulong BruteCpf => ulong.Parse($"{Numbers}{Validators}");
+    public string UnformattedCpf => $"{Numbers}{Validators}";
+    public string FormattedCpf => BruteCpf.ToString(@"000\.000\.000\-00");
+    public string MaskedCpf => $"{FormattedCpf.Split('.')[0]}.XXX.XXX-{FormattedCpf.Split('-')[1]}";
 
     public CPF(string cpf)
     {
         CheckCpfInput(cpf);
-
         ValidCpf(cpf);
 
-        Number = cpf[..9];
-        Validators = cpf[^2..];
+        Numbers = ulong.Parse(cpf[..9]);
+        Validators = ulong.Parse(cpf[^2..]);
     }
-
-    #region Tools
 
     private void CheckCpfInput(string cpf)
     {
@@ -71,7 +72,7 @@ public record CPF
     {
         string regex = @"(\d)\1{10}";
 
-        if (Regex.IsMatch(cpf,regex))
+        if (Regex.IsMatch(cpf, regex))
             return true;
 
         return false;
@@ -79,16 +80,4 @@ public record CPF
 
     private bool CheckIsNumbers(string numbers) => numbers.All(char.IsAsciiDigit);
     private bool CheckLength(string numbers) => numbers.Length == 11;
-
-    #endregion
-
-    public string GetUnformattedCpf() => $"{Number}{Validators}";
-    public string GetFormattedCpf()
-    {
-        var cpf = $"{Number}{Validators}";
-
-        return $"{cpf[0..3]}.{cpf[3..6]}.{cpf[6..9]}-{cpf[9..11]}";
-    }
-
-    public string GetValidationCode() => Validators;
 }

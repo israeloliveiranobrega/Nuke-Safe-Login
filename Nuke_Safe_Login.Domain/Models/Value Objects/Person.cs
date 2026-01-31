@@ -1,12 +1,49 @@
 ﻿using Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
+using Nuke_Safe_Login.Domain.Models.Value_Objects.Base.Exceptions;
 
 namespace Nuke_Safe_Login.Domain.Models.Value_Objects
 {
-    public class Person
+    public record Person
     {
-        public Name LegalName { get; set; }  
-        public Name PreferredName { get; set; }
-        public DateOnly BirthDate { get; set; }
-        public CPF Cpf { get; set; }
+        public Name Name { get; init; }  
+        public DateOnly BirthDate { get; init; }
+        public CPF Cpf { get; init; }
+
+        public string FirstName => Name.FirstName;
+        public string LastName => Name.LastName;
+        public string FullName => Name.FullName;
+
+        public ulong Numbers => Cpf.Numbers;
+        public ulong Validators => Cpf.Validators;
+        public ulong BruteCpf => Cpf.BruteCpf;
+        public string UnformattedCpf => Cpf.UnformattedCpf;
+        public string FormattedCpf => Cpf.FormattedCpf;
+        public string MaskedCpf => Cpf.MaskedCpf;
+
+        public Person(Name name, DateOnly birthDate, CPF cpf)
+        {
+            Name = name;
+            Cpf = cpf;
+
+            ValidateAge(birthDate);
+
+            BirthDate = birthDate;
+        }
+
+        private void ValidateAge(DateOnly date)
+        {
+            var today = DateOnly.FromDateTime(DateTime.Today);
+
+            var age = today.Year - date.Year;
+
+            if (date > today.AddYears(-age)) 
+                age--;
+
+            if (age < 18)
+                throw new UnderageException();
+
+            if (age > 120)
+                throw new OveragedException();
+        }
     }
 }
