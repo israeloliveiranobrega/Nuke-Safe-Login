@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
-public readonly struct Email
+public record Email
 {
     public string Address { get; init; }
     public string Domain { get; init; }

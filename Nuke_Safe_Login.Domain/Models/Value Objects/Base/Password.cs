@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
-public readonly struct Password
+public record Password
 {
     public string Hash { get; init; }
 

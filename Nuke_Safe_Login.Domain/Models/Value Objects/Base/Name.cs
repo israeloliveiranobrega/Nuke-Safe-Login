@@ -7,6 +7,7 @@ public record Name
 {
     public string FirstName { get; init; }
     public string LastName { get; init; }
+
     public string FullName => $"{FirstName} {LastName}";
 
     public Name(string firstName, string lastName)

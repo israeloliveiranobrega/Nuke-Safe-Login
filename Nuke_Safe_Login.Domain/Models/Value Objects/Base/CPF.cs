@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
-public readonly struct CPF
+public record CPF
 {
     public ulong Numbers { get; init; }
     public ulong Validators { get; init; }  
@@ -21,6 +21,7 @@ public readonly struct CPF
         Validators = ulong.Parse(cpf[^2..]);
     }
 
+    #region Validator
     private void CheckCpfInput(string cpf)
     {
         if (string.IsNullOrWhiteSpace(cpf))
@@ -32,7 +33,6 @@ public readonly struct CPF
         if (CheckKnowWrongCpfs(cpf))
             throw new KnowInvalidCpfException();
     }
-
     private void ValidCpf(string cpf)
     {
         int[] firstValidation = ConvertCpfToIntArray(cpf[..9]);
@@ -48,9 +48,10 @@ public readonly struct CPF
         if (!(result == cpf[^2..]))
             throw new InvalidCpfException();
     }
+    #endregion
 
+    #region Tools
     private int[] ConvertCpfToIntArray(string cpf) => [.. cpf.Select(c => int.Parse(c.ToString()))];
-
     private int CalculeValidator(int[] numbers)
     {
         int sum = 0;
@@ -67,7 +68,6 @@ public readonly struct CPF
 
         return result;
     }
-
     private bool CheckKnowWrongCpfs(string cpf)
     {
         string regex = @"(\d)\1{10}";
@@ -77,7 +77,7 @@ public readonly struct CPF
 
         return false;
     }
-
     private bool CheckIsNumbers(string numbers) => numbers.All(char.IsAsciiDigit);
     private bool CheckLength(string numbers) => numbers.Length == 11;
+    #endregion
 }
