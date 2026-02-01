@@ -1,8 +1,0 @@
-<Solution>
-  <Project Path="../Nuke_Safe_Login.Application/Nuke_Safe_Login.Application.csproj" Id="a1a5d2f8-87ac-4772-a7d0-41fd6c2e1886" />
-  <Project Path="../Nuke_Safe_Login.Domain/Nuke_Safe_Login.Domain.csproj" Id="1b849996-be6b-440d-9d95-bf5198d18d82" />
-  <Project Path="../Nuke_Safe_Login.Infra/Nuke_Safe_Login.Infra.csproj" Id="5b92d7d2-ff74-4f29-bbab-d1a5263ac3d3" />
-  <Project Path="../Nuke_Safe_Login.Mocks/Nuke_Safe_Login.Mocks.csproj" Id="e30d9697-7328-40e6-95bc-2f3c6c4e32d7" />
-  <Project Path="../Nuke_Safe_Login.Test/Nuke_Safe_Login.Test.csproj" Id="4f71056c-dd68-4d12-9770-43481722161f" />
-  <Project Path="Nuke_Safe_Login.csproj" />
-</Solution>

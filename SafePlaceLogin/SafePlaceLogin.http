@@ -1,6 +1,0 @@
-@SafePlaceLogin_HostAddress = http://localhost:5172
-
-GET {{SafePlaceLogin_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

@@ -8,6 +8,20 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nuke_Safe_Login.Application\Nuke_Safe_Login.Application.csproj" />
+    <ProjectReference Include="..\Nuke_Safe_Login.Domain\Nuke_Safe_Login.Domain.csproj" />
+    <ProjectReference Include="..\Nuke_Safe_Login.Infra\Nuke_Safe_Login.Infra.csproj" />
+    <ProjectReference Include="..\Nuke_Safe_Login.Mocks\Nuke_Safe_Login.Mocks.csproj" />
+    <ProjectReference Include="..\Nuke_Safe_Login.Test\Nuke_Safe_Login.Test.csproj" />
   </ItemGroup>
 
 </Project>

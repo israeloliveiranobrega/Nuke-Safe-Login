@@ -19,7 +19,6 @@
     <ProjectReference Include="..\Nuke_Safe_Login.Domain\Nuke_Safe_Login.Domain.csproj" />
     <ProjectReference Include="..\Nuke_Safe_Login.Infra\Nuke_Safe_Login.Infra.csproj" />
     <ProjectReference Include="..\Nuke_Safe_Login.Mocks\Nuke_Safe_Login.Mocks.csproj" />
-    <ProjectReference Include="..\SafePlaceLogin\Nuke_Safe_Login.csproj" />
   </ItemGroup>
 
   <ItemGroup>
