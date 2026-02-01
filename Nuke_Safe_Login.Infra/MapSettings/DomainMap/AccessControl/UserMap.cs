@@ -20,7 +20,9 @@ namespace Nuke_Safe_Login.Infra.MapSettings.DomainMap.AccessControl
                     name.Property(x => x.FirstName).HasColumnName("first_name");
                     name.Property(x => x.LastName).HasColumnName("last_name");
                 });
+
                 person.Property(x => x.BirthDate).HasColumnName("birth_date");
+
                 person.OwnsOne(x => x.Cpf, cpf =>
                 {
                     cpf.Property(x => x.Numbers).HasColumnName("cpf_numbers");

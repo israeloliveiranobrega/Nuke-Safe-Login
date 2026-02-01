@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Nuke_Safe_Login.Infra.Repositorys.AccessControl.Implementation
 {
-    public class UserRepository(DBContext database) 
+    public class UserRepository(DataContext database) 
     {
-        public readonly DBContext _database = database;
+        public readonly DataContext _database = database;
         public Guid Create(LoginAttempt user)
         {
             throw new NotImplementedException();

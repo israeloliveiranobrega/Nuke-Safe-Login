@@ -6,7 +6,7 @@ namespace SafePlaceLogin
 {
     public class DBContext(DbContextOptions options) : DbContext(options)
     {
-        public DbSet<LoginAttempt> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<LoginAttempt> LoginAttempts { get; set; }
         public DbSet<UserSession> UserSessions { get; set; }
 

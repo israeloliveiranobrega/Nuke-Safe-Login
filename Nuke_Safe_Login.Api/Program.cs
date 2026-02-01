@@ -1,13 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using Nuke_Safe_Login.Domain.Helpers.Extension;
 using Nuke_Safe_Login.Domain.Models.Value_Objects.Base;
+using SafePlaceLogin;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("SafePlaceConnection");
 
-builder.Services.AddDbContext<DbContext>(options => options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
 
 // Add services to the container.
 
